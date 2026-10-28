@@ -1,0 +1,41 @@
+{
+  "name": "@lp-labs/react-smooth-view",
+  "version": "0.1.0",
+  "description": "Lightweight React animations with viewport triggers and zero runtime dependencies beyond React.",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": ["dist", "README.md"],
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node --test test/engine.test.js test/react.test.js",
+    "check": "tsc --noEmit",
+    "prepack": "npm run check && npm test && npm run build"
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.0",
+    "esbuild": "^0.25.0",
+    "jsdom": "^26.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "typescript": "^5.7.0"
+  },
+  "engines": { "node": ">=18" },
+  "keywords": ["react", "animation", "viewport", "intersection-observer", "spring"]
+}
